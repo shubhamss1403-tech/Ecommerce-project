@@ -1,0 +1,43 @@
+import React, { useState } from 'react';
+import InfoModal from '../Components/InfoModal.jsx';
+
+function Contact() {
+  const [modalOpen, setModalOpen] = useState(true);
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
+      <p>
+        Have questions or need help? Reach out to us!
+      </p>
+      <ul className="list-disc pl-5 mt-2 mb-6">
+        <li>Email: shubhamss1403@gmail.com</li>
+        <li>Phone: 4342234</li>
+        <li>Address: a-20 central market near metro station</li>
+      </ul>
+
+      <button
+        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+        onClick={() => setModalOpen(true)}
+      >
+        Show Contact Info (Modal)
+      </button>
+      <InfoModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title="Contact Us"
+      >
+        <p>
+          Have questions or need help? Reach out to us!
+        </p>
+        <ul className="list-disc pl-5 mt-2">
+          <li>Email: shubhamss1403@gmail.com</li>
+          <li>Phone: 4342234</li>
+          <li>Address: a-20 central market near metro station</li>
+        </ul>
+      </InfoModal>
+    </div>
+  );
+}
+
+export default Contact;
